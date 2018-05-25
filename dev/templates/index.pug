@@ -1,0 +1,117 @@
+doctype html
+html(lang="ru")
+  head
+    title Todo-list task
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="msapplication-tap-highlight" content="no")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css")
+    link(rel="stylesheet" href="css/app.css")
+  body
+    -
+      var tasks_list = [
+        {
+          id: "1",
+          title: "Title of the task #1",
+          project: "Project #1",
+          priority: "3",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        },
+        {
+          id: "2",
+          title: "Title of the task #2",
+          project: "Project #2",
+          priority: "1",
+          description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+          id: "3",
+          title: "Title of the task #3",
+          project: "Project #3",
+          priority: "2",
+          description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        },
+        {
+          id: "4",
+          title: "Title of the task #4",
+          project: "Project #1",
+          priority: "1",
+          description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        },
+        {
+          id: "5",
+          title: "Title of the task #5",
+          project: "Project #2",
+          priority: "2",
+          description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        },
+        {
+          id: "6",
+          title: "Title of the task #6",
+          project: "Project #3",
+          priority: "3",
+          description: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        }
+      ]
+    .todolist
+      .todolist__title Todo list
+      .todolist__task.tasks
+        each value in tasks_list
+          .tasks__item.task(data-priority=value.priority data-id=value.id data-project=value.project)
+            .task__title #{value.title}
+
+            .task__details
+              .task__project Проект: #{value.project}
+              .task__priority Приоритет: #{value.priority}
+
+            .task__description #{value.description}
+
+            .task__menu.menu
+              .menu__item
+                button(class="button button_task button_left js-change" type="button") Изменить
+              .menu__item
+                button(class="button button_task button_center js-close" type="button") Закрыть
+              .menu__item
+                button(class="button button_task button_right js-toggle" type="button") Развернуть
+
+
+
+      .todolist__toolbar.toolbar
+        .toolbar__item
+          button(class="button button_toolbar js-add" type="button") Новая задача
+        .toolbar__item
+          label.checkbox
+            input(class="checkbox__input js-priority" type="checkbox")
+            span.checkbox__icon
+            span.checkbox__text по приоритету
+        .toolbar__item
+          label.select
+            select.js-project
+      .todolist__form
+        form.form(data-current-id="")
+          .form__row
+            label(for="js-task-title").form__label Название задачи:
+            input(type="text" id="js-task-title").form__input.required
+          .form__row
+            label(for="js-task-project").form__label Название проекта:
+            input(type="text" id="js-task-project").form__input.required
+          .form__row
+            label(for="js-task-priority").form__label Приоритет:
+            label.select.select_form.form__select
+              select(id="js-task-priority")
+                option(value="1") 1
+                option(value="2") 2
+                option(value="3") 3
+          .form__row
+            label(for="js-task-description").form__label Описание:
+            textarea(id="js-task-description").form__textarea.required
+          .form__row
+            .form__controls
+              button(class="button button_task button_form js-form-save" type="button" style="display: none;") Сохранить
+              button(class="button button_task button_form js-form-add" type="button" style="display: none;") Добавить
+              button(class="button button_task button_form js-form-reset" type="reset") Отменить
+    // Javascript
+    script(src="js/jquery.min.js")
+    script(src="js/app.js")

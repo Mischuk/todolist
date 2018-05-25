@@ -1,0 +1,153 @@
+.todolist
+  max-width 500px
+  margin 0 auto
+  &__title
+    margin-bottom 15px
+    font-size 36px
+    line-height 1
+    text-align center
+    font-weight bold
+    text-transform uppercase
+    color $primary_color
+  &__task
+    max-height 500px
+    overflow auto
+    padding 15px
+    background $primary_color
+    color #fff
+    box-shadow 2px 2px 4px 0px rgba(0,0,0,0.25)
+  &__toolbar
+    margin-top 15px
+  &__form
+    display none
+    margin-top 15px
+    padding 15px
+    background $primary_color
+    color #fff
+    box-shadow 2px 2px 4px 0px rgba(0,0,0,0.25)
+.tasks
+  &__item
+    anim()
+    margin-bottom 15px
+    padding 15px
+    background rgba(255,255,255,0.2)
+    &:hover
+      background-color rgba(255,255,255,0.3)
+      margin-left -15px
+      margin-right -15px
+      padding-left 30px
+      padding-right 30px
+    &:last-child
+      margin-bottom 0
+
+.task
+  &__title
+    font-size 24px
+    line-height 1
+    margin-bottom 15px
+  &__details
+    clearfix()
+    margin-bottom 15px
+  &__project
+    float left
+  &__priority
+    float right
+  &__description
+    padding-bottom 15px
+    display none
+
+.menu
+  clearfix()
+  &__item
+    float left
+    width 33.333%
+
+.toolbar
+  clearfix()
+  &__item
+    float left
+    width 33.333%
+    text-align center
+
+.form
+  line-height 40px
+  &__row
+    margin-bottom 15px
+    &:last-child
+      margin-bottom 0
+  &__label
+    display inline-block
+    vertical-align top
+    width 190px
+    padding-right 15px
+    text-align right
+    font-weight bold
+    font-size 14px
+  &__select
+    display inline-block
+    vertical-align middle
+    width 265px
+  &__input,
+  &__textarea
+    anim(box-shadow)
+    display inline-block
+    vertical-align middle
+    width 265px
+    max-width 265px
+    min-width 265px
+    height 40px
+    border none
+    outline none
+    padding 0 15px
+    box-sizing border-box
+    font-weight bold
+    font-size 14px
+    &:focus
+      box-shadow inset 0 0 0 2px $primary_color - 25%
+    &.error
+      box-shadow inset 0 0 0 2px red
+  &__textarea
+    min-height 80px
+    padding-top 10px
+    padding-bottom 10px
+  &__controls
+    padding-left 205px
+
+
+
+.button
+  sn()
+  anim()
+  display block
+  padding 10px
+  border none
+  outline none
+  font-size 14px
+  font-weight bold
+  color #fff
+  border 2px solid #fff
+  background none
+  cursor pointer
+  width 136px
+  &:hover
+    background #fff
+    color $primary_color
+  &_center
+    margin-left auto
+    margin-right auto
+  &_left
+    margin-right auto
+  &_right
+    margin-left auto
+  &_toolbar
+    background $primary_color
+    border-color @background
+    &:hover
+      background $primary_color - 25%
+      border-color @background
+      color #fff
+  &_form
+    display inline-block
+    vertical-align middle
+    width auto
+    margin-right 15px
